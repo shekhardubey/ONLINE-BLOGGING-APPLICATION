@@ -1,0 +1,48 @@
+{% extends 'bootstrap/base.html' %}
+{% block head %}
+    {{ ckeditor.load() }}
+    {{ super() }}
+{% endblock %}
+{% block title %}
+    Flog
+{% endblock %}
+
+{% block navbar %}
+  {% include '_navbar.html' %}
+{% endblock %}
+
+{% block content %}
+    
+   <html>
+   <style>
+    body{
+    	background-image:url('https://thumbs.gfycat.com/AffectionateRawIguanodon-small.gif');
+    	background-repeat: no-repeat;
+    	background-position: center;
+    	background-size: cover;
+        position: relative;
+        }
+        
+          
+              
+    </style>
+    <body>  
+
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+        <ul>
+            {% for category,message in messages %}
+                <li class="alert alert-{{category}}">{{message}}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    {% endwith %}
+   
+    {% block sub_content %}
+    {% endblock %}
+    </body> 
+</html>
+{% endblock %}
+
+
